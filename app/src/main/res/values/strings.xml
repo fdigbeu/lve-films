@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LVE Films</string>
+    <string name="image_description"></string>
+    <string name="urlAdminVideos">https://www.levraievangile.org/webservice/videos/films/acces-admin/</string>
+</resources>
