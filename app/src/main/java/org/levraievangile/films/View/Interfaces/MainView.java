@@ -26,5 +26,7 @@ public class MainView {
         public ArrayList<Video> getVideosData(Context context);
         public String changeFormatDate(String date);
         public String changeFormatDuration(String duration);
+        public void playVideoFromUrl(Context context, String url);
+        public void playAudioFromUrl(Context context, String url);
     }
 }

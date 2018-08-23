@@ -1,9 +1,11 @@
 package org.levraievangile.films.Presenter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -153,6 +155,34 @@ public class MainPresenter implements MainView.IPresenter{
     public String changeFormatDuration(String duration){
         String tagDuree[] = duration.split(":");
         return ((Integer.parseInt(tagDuree[0])*60)+Integer.parseInt(tagDuree[1]))+"min";
+    }
+
+    /**
+     * Play video from url
+     * @param context
+     * @param url
+     */
+    @Override
+    public void playVideoFromUrl(Context context, String url) {
+        Uri intentUri = Uri.parse(url);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setDataAndType(intentUri, "video/mp4");
+        context.startActivity(intent);
+    }
+
+    /**
+     * Play audio from url
+     * @param context
+     * @param url
+     */
+    @Override
+    public void playAudioFromUrl(Context context, String url) {
+        Uri intentUri = Uri.parse(url);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setDataAndType(intentUri, "audio/*");
+        context.startActivity(intent);
     }
 
     /**

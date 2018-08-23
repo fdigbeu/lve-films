@@ -83,11 +83,8 @@ public class VideoRecyclerAdapter extends RecyclerView.Adapter<VideoRecyclerAdap
                     videoSelected = videoItems.get(positionItem);
                     //--
                     String urlVideo = videoItems.get(positionItem).getUrlacces()+videoItems.get(positionItem).getSrc();
+                    presenter.playVideoFromUrl(context, urlVideo);
                     Log.i("TAG_URL", "urlVideo = "+urlVideo);
-                    File file = new File(urlVideo);
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(Uri.fromFile(file), "video/*");
-                    context.startActivity(Intent.createChooser(intent, "Lecture { "+videoItems.get(positionItem).getTitre()+" }"));
                     //--
                     positionSelected = positionItem;
                     addFocusToContainerItemSelection(view);
